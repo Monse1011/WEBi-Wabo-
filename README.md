@@ -1,2 +1,2 @@
-# WEBi-Wabo-
+# WEBi Wabo
 Diseño de aplicaciones web 
