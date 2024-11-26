@@ -1,0 +1,50 @@
+.formulario p {
+    display: block; 
+    text-align: center; 
+    font-size: 12pt; 
+    margin-top: -25px;
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.drop-zone {
+    width: 100%;
+    height: 250px;
+    border: 4px dashed #cccccc;
+    border-radius: 10px;
+    text-align: center;
+    color: #cccccc;
+}
+
+.drop-zone.dragover {
+    border-color: #666666;
+}
+
+.drop-zone p {
+    margin-top: 50px ;
+
+}
+
+.drop-zone label {
+    margin: 20px;
+    display: inline-block;
+    padding: 8px 24px;
+    background: #192762;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #192762;
+    color: white;
+}
+
+.drop-zone input[type=file] {
+    display: none;
+}
+
+.gallery {
+    padding: 16px;
+}
+
+.gallery img {
+    width: 120px;
+    margin: 0 10px 10px 0;
+}

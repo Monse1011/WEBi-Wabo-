@@ -1,0 +1,14 @@
+.fecha {
+    display: flex;
+    justify-content: space-between; 
+    gap: 40px; 
+}
+
+
+.dia input, .mes input, .año input {
+    width: 100%; 
+    padding: 10px;
+    font-size: 16px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+}

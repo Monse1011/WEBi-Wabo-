@@ -1,0 +1,271 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: white;
+    background-image: radial-gradient(circle, #cccccc 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+#link{
+    text-decoration: none;
+    color: black;
+}
+#header {
+    background-color: #010d3e;
+    padding: 10pt;
+}
+
+#header h1{
+    margin-top: auto;
+    margin-bottom: 15px;
+    margin-left: 20pt;
+}
+
+#contenedor {
+    display: flex;
+}
+
+#contenedor_logo {
+    height: 80px;
+    width: 80px;
+}
+
+#barra_navegacion {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100pt;
+    color: #fff;
+    font-size: 20pt;
+}
+
+#button_nav {
+    float: right;
+    background-color: #ffbe3f;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    border-radius: 10pt;
+    padding: 10pt;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+#button_nav:hover {
+    color: #fff;
+}
+
+#info {
+    width: 70%;
+    margin: 30pt auto;
+    text-align: center;
+}
+
+#info h2{
+    color: #2b2222;
+    font-size: 55pt;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+#info p{
+    background-color: #d0a0f856;
+    line-height: 2;
+    font-size: 15pt;
+    border-radius: 5pt;
+}
+
+#opciones {
+    display: flex;
+    width: 85%;
+    margin: 0 auto;
+}
+
+.opcion {
+    text-align: center;
+    border-top: #66127e solid 3px;
+    width: 32%;
+    margin: 0 auto;
+}
+
+.img_contenedor {
+    border-radius: 10pt;
+    width: 100%;
+    height: auto;
+}
+
+.img_contenedor img{
+    border-radius: 10pt;
+    width: 100%;
+    height: auto;
+}
+
+.opcion h3{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80pt;
+    font-size: 25pt;
+}
+
+.opcion p{
+    font-size: 15pt;
+    line-height: 2;
+}
+
+#info2 {
+    margin-top: 20pt;
+    background-color: #f8a0f856;
+    padding-top: 20pt;
+    width: 100%;
+    text-align: center;
+    padding-bottom: 40pt;
+}
+
+#info2 h3{
+    color: #2b2222;
+    font-size: 55pt;
+    text-transform: uppercase;
+    font-weight: 900;
+}
+
+#info2 p{
+    font-size: 25pt;
+    margin-bottom: 20pt;
+}
+
+#img_contenedor2 {
+    margin: 0 auto;
+    width: 900px;
+    height: 522px;
+    border-radius: 15pt;
+}
+
+#img_contenedor2 img{
+    width: 900px;
+    height: 522px;
+    border-radius: 15pt;
+}
+
+@media (max-width:1155px){
+    .opcion h3{
+        font-size: 20pt;
+        margin-bottom: 10pt;
+    }
+    .opcion p{
+        font-size: 13pt;
+    }
+}
+
+@media (max-width:945px){
+    #info h2{
+        font-size: 50pt;
+    }
+
+    #barra_navegacion {
+        padding: 0 40pt;
+    }
+
+    #img_contenedor2 {
+        width: 700px;
+        height: 406px;
+    }
+    
+    #img_contenedor2 img{
+        width: 700px;
+        height: 406px;
+    }
+}
+
+@media (max-width:685px){
+    #header h1{
+        margin-left: 0;
+        font-size: 18pt;
+    }
+
+    #button_nav {
+        padding: 6pt;
+        font-size: 12pt;
+        cursor: pointer;
+    }
+
+    #info h2{
+        font-size: 40pt;
+    }
+
+    #opciones {
+        display: block;
+    }
+
+    .opcion {
+        width: 90%;
+    }
+
+    .opcion h3{
+        height: 50pt;
+    }
+    
+    .opcion p{
+        font-size: 14pt;
+        margin-top: 10pt;
+        margin-bottom: 15pt;
+    }
+
+    #barra_navegacion {
+        padding: 0;
+    }
+
+    #img_contenedor2 {
+        width: 480px;
+        height: 278px;
+    }
+    
+    #img_contenedor2 img{
+        width: 480px;
+        height: 278px;
+    }
+}
+
+@media (max-width:500px){
+    #header h1{
+        margin-left: 0;
+        font-size: 16pt;
+    }
+    #button_nav {
+        padding: 5pt;
+        font-size: 11pt;
+        cursor: pointer;
+    }
+    #img_contenedor2 {
+        width: 330px;
+        height: 191px;
+    }
+    #img_contenedor2 img{
+        width: 330px;
+        height: 191px;
+    }
+    #info {
+        width: 85%;
+    }
+    #info p{
+        margin-top: 10pt;
+        font-size: 12pt;
+    }
+    #info h2{
+        font-size: 30pt;
+    }
+
+    #info2 h3{
+        font-size: 40pt;
+    }
+    
+    #info2 p{
+        font-size: 16pt;
+        padding: 0 10pt;
+    }
+}

@@ -1,0 +1,368 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", "Roboto", Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: white;
+    background-image: radial-gradient(circle, #cccccc 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+#header {
+    background-color: #010d3e;
+    padding: 10pt;
+}
+
+#header h1{
+    margin-top: auto;
+    margin-bottom: 15px;
+    margin-left: 20pt;
+}
+
+#contenedor {
+    display: flex;
+}
+
+#contenedor_logo {
+    height: 80px;
+    width: 80px;
+}
+
+#link{
+    text-decoration: none;
+    color: black;
+}
+
+#barra_navegacion {
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 100pt;
+    color: #fff;
+    font-size: 20pt;
+}
+
+#button_nav {
+    float: right;
+    background-color: #ffbe3f;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    border-radius: 10pt;
+    padding: 10pt;
+    font-size: 16pt;
+    cursor: pointer;
+}
+
+#button_nav:hover {
+    color: #fff;
+}
+
+#section1 {
+    background-image: url(assets/images/fondo.jpeg);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-size: cover;
+    text-align: center;
+    border-bottom: #000000 1px solid;
+    height: 850px;
+    padding: 60pt 70pt 0 70pt;
+}
+
+#section1 h2{
+    font-family: "Poppins", "Roboto", 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 50pt;
+    font-weight: 900;
+    line-height: 1.5;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 30pt;
+}
+
+#section1 p{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-size: 25pt;
+    line-height: 1.5;
+    color: #fff;
+    margin-bottom: 30pt;
+}
+
+.button_section {
+    text-decoration: none;
+    background-color: #ffbe3f;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    border-radius: 10pt;
+    padding: 15pt;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-top: 20pt;
+}
+
+.button_section:hover {
+    color: #fff;
+}
+
+#section2 {
+    height: 580px;
+    border-bottom: #000 2px solid;
+}
+
+.centrar {
+    width: 100%;
+    height: 580px;
+    display: flex;
+    justify-content: center;
+}
+
+#img_contenedor {
+    margin-top: 30pt;
+    width: 500px;
+    height: 500px;
+}
+
+#img_contenedor img{
+    border-radius: 10pt;
+    width: 500px;
+    height: 500px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+#texto_section2 {
+    margin-right: 40pt;
+    text-align: center;
+    height: 50px;
+    width: 300px;
+    margin-top: 90pt;
+    font-size: 25pt;
+}
+
+#texto_section2 h2{
+    margin-bottom: 30pt;
+}
+
+#seccion-comentarios {
+    padding: 15pt;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+} 
+
+.comments-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.comentario {
+    text-align: center;
+    background-color: #192762;
+    width: 600px;
+    height: 350px;
+    padding: 20px;
+    position: absolute;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform 1s ease, opacity 1s ease;
+}
+
+.nombre {
+    font-size: 40pt;
+}
+
+.comentario h3 {
+    font-size: 30pt;
+    color: #fff;
+    margin-top: 35px;
+}
+
+.comentario p {
+    font-weight: bold;
+    font-size: 20pt;
+    color: #fff;
+    margin-top: 15pt;
+}
+
+.comentario p span{
+    font-family:'Times New Roman', Times, serif;
+    font-size: 40pt;
+}
+
+.comentario.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.comentario.enter {
+    transform: translateX(100%); /* Entra desde la derecha */
+}
+
+.comentario.exit {
+    transform: translateX(100%); /* Sale hacia la izquierda */
+}
+
+@media (max-width:900px){
+    #barra_navegacion {
+        padding: 0 30pt;
+    }
+    
+    #section2 {
+        height: 550px;
+    }
+
+    .centrar {
+        height: 550px;
+    }
+    
+    #img_contenedor {
+        width: 450px;
+        height: 450px;
+    }
+    
+    #img_contenedor img{
+        width: 450px;
+        height: 450px;
+    }
+    
+    #texto_section2 {
+        margin-right: 20pt;
+    }
+
+}
+
+@media (max-width:800px){
+    #barra_navegacion {
+        padding: 0 30pt;
+    }
+
+    #section1 {
+        padding: 20pt 10pt 0 10pt;
+        height: 600pt;
+    }
+
+    #section2 {
+        height: 500px;
+    }
+
+    .centrar {
+        height: 500px;
+    }
+    
+    #img_contenedor {
+        width: 390px;
+        height: 390px;
+    }
+    
+    #img_contenedor img{
+        width: 390px;
+        height: 390px;
+    }
+    
+    #texto_section2 {
+        margin-right: 8pt;
+    }
+
+}
+
+@media (max-width: 770px){
+    #barra_navegacion {
+        padding: 0 50pt;
+    }
+    #section1 {
+        padding: 20pt 20pt 0 20pt;
+        height: 300pt;
+    }
+    #section1 h2{
+        margin-bottom: 15pt;
+        font-size: 30pt;
+    }
+    #section1 p {
+        margin-bottom: 15pt;
+        font-size: 15pt;
+    }
+    #section2 {
+        height: 400px;
+    }
+
+    .centrar {
+        height: 400px;
+    }
+    
+    #img_contenedor {
+        width: 320px;
+        height: 320px;
+    }
+    
+    #img_contenedor img{
+        width: 320px;
+        height: 320px;
+    }
+    
+    #texto_section2 {
+        margin-top: 50pt;
+        margin-right: 0;
+        font-size: 18pt;
+    }
+}
+
+@media (max-width: 610px){
+    #header h1{
+        margin-left: 0;
+    }
+    #section1 {
+        height: 450pt;
+    }
+    #barra_navegacion {
+        padding: 0;
+        font-size: 10pt;
+    }
+    #button_nav {
+        border-radius: 10pt;
+        padding: 5pt;
+        font-size: 12pt;
+        cursor: pointer;
+    }
+    .button_section {
+        padding: 8pt;
+        font-size: 14pt;
+    }
+    #section2 {
+        height: 600px;
+    }
+    .centrar {
+        display: block;
+        height: 600px;
+        width: 320px;
+        margin: 0 auto;
+    }
+    #texto_section2 {
+        margin-top: 30pt;
+    }
+    #img_contenedor {
+        margin-top: 140pt;
+    }
+    .comentario{
+        width: 400px;
+        height: 300px;
+    }
+    .comentario h3 {
+        font-size: 20pt;
+        margin-top: 15px;
+    }
+    
+    .comentario p {
+        margin-top: 0;
+        font-size: 13pt;
+        padding: 20pt;
+    }
+}
