@@ -365,4 +365,68 @@ body {
         font-size: 13pt;
         padding: 20pt;
     }
+
+   
+    
+}
+
+@media print {
+
+  
+    body {
+        background: none; 
+        color: black; 
+        font-size: 12pt; 
+    }
+
+
+    #section1 h2, #section2 h2 {
+        font-size: 20pt;
+        text-align: left;
+        text-shadow: none;
+    }
+
+    #section1 p, #section2 p, .comentario p {
+        font-size: 14pt;
+        color: #000;
+    }
+
+    #img_contenedor img{
+        max-width: 100%;
+        height: auto;
+        filter: grayscale(100%);    
+    }
+
+    #contenedor_logo{
+        filter: grayscale(100%); 
+    }
+
+    .button_section {
+       border: 1px solid black;
+    }
+
+
+    .comments-container {
+        display: block;
+    }
+
+    .comentario {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        position: static; 
+        opacity: 1; 
+        transform: none;
+
+        color: #000;
+    }
+
+   
+    h2, p, .comentario {
+        page-break-inside: avoid;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
 }
