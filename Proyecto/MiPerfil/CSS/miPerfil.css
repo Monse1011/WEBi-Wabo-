@@ -1,0 +1,261 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #fff;
+    background-image: radial-gradient(circle, #cccccc 1px, transparent 1px);
+    background-size: 20px 20px;
+    height: 100%;
+}
+
+.barra-superior {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px;
+}
+
+.menu-foto{
+    display: flex;
+    align-items: center;
+}
+
+.menu-container {
+    position: relative; 
+}
+
+.menu-container:hover .menu-desplegable {
+    display: block; 
+}
+
+.logo{
+    text-align: center;
+}
+
+.logo img {
+    max-width:70px;
+    height: auto;
+}
+
+.icono-menu,
+.icono-mensaje {
+    font-size: 35px; 
+    cursor: pointer; 
+}
+
+.icono-menu {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.icono-mensaje{
+    margin-right: 10px;
+}
+
+.icono-mensaje img{
+    width: 50px; 
+    height: 50px;
+}
+
+.menu-desplegable {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 0;
+    background-color: #010d3e;
+    border: 1px solid #ddd;
+    width: 350px; 
+    z-index: 1000;
+    height: 500px;
+}
+
+.menu-desplegable a {
+    display: block;
+    padding: 10px;
+    font-size: 15pt;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.opcion i {
+    color:inherit;
+}
+
+.opcion:hover {
+    background-color: lightblue;
+    color: #000;
+}
+
+.opcion {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 20pt;
+    border-bottom: 3pt solid #0074d9;
+    padding-left: 10pt;
+    color: #fff;
+}
+
+.opcion a {
+    display: block;
+    width: 100%;
+    height: 100%; 
+    font-weight: bold;
+    color: inherit;
+}
+
+section{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    height: 650px;
+    padding: 20pt;
+    margin: 10pt auto;
+    border: #000 2px solid;
+}
+
+.seccionImagen, .seccionTexto {
+    border-radius: 5pt;
+    border: #000 solid 2px;
+    width: 48%;
+    height: 95%;
+}
+
+.seccionTexto {
+    overflow: scroll;
+    overflow-x: hidden; 
+}
+
+.img_container {
+    background-color: #0074d9;
+    border-radius: 5pt;
+    width: 300px;
+    height: 250px;
+    margin: 20pt auto 10pt;
+}
+
+.dato, .datoEtiquetas {
+    margin-left: 15pt;
+    margin-bottom: 10pt; 
+}
+
+.dato input {
+    margin-top: 5pt;
+    width: 300pt;
+    font-size: 12pt;
+    padding: 3pt 8pt;
+}
+
+.seccion{
+    margin: 15pt 0 10pt 40pt;
+}
+
+.dato textarea {
+    resize: none;
+    margin-top: 5pt;
+    width: 300pt;
+    height: 50pt;
+    font-size: 12pt;
+    padding: 5pt 8pt;
+}
+
+.dato i{
+    cursor: pointer;
+    font-size: 16pt;
+}
+
+.dato button{
+    padding: 5pt;
+    border-radius: 5pt;
+    border: none;
+    background-color: #ffbe3f;
+    font-weight: bold;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+#textareaElementos{
+    display: flex;
+    align-items: center;
+}
+
+#textareaElementos button{
+    margin-left: 5pt;
+}
+
+.etiquetas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+    border: #a2a2a2 solid 1px;
+    min-height: 25pt;
+    height: auto;
+    padding: 5pt;
+    border-radius: 3pt;
+    width: 300pt;
+}
+
+.etiquetas-container .etiqueta {
+    display: flex;
+    align-items: center;
+    background-color: #f9d3d3;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.etiquetas-container .etiqueta i {
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.opciones-buscando {
+    display: none;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.opciones-buscando .opcionEtiqueta {
+    border: #000 solid 1px;
+    width: fit-content;
+    padding: 5pt;
+    text-align: center;
+    border-radius: 5pt;
+    margin: 10pt auto;
+    background-color: #ccf0f9;
+}
+
+.centrar{
+    display: flex;
+    align-items: center;
+}
+
+.datoEtiquetas button{
+    height: fit-content;
+    padding: 5pt;
+    margin-left: 3pt;
+    border-radius: 5pt;
+    border: none;
+    background-color: #ffbe3f;
+    font-weight: bold;
+    font-size: 12pt;
+    cursor: pointer;
+}
+
+.acomodar {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.opcionEtiqueta i {
+    cursor: pointer;
+}

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/miPerfil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <title>Mi Perfil | UADYPoint</title>
+</head>
+<body>
+    <header class="barra-superior">
+        <div class="menu-foto">
+            <div class="menu-container">
+                <div class="icono-menu">☰</div> 
+                <div class="menu-desplegable">
+                    <div class="opcion">
+                        <i class="fa-solid fa-house"></i>
+                        <a href="../../PaginaInicio/HTML/homePage.html">Inicio</a>
+                    </div>
+                    <div class="opcion">
+                        <i class="fa-solid fa-heart"></i>
+                        <a href="#">Matches</a>
+                    </div>
+                    <div class="opcion">
+                        <i class="fa-solid fa-user"></i>
+                        <a href="../../MiPerfil/HTML/miPerfil.html">Perfil</a>
+                    </div>
+                    <div class="opcion">
+                        <i class="fa-solid fa-gear"></i>
+                        <a href="#">Configuraciones</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="logo"><img src="../Recursos/leopardo.png" alt="Foto de Perfil"></div>
+        <div class="icono-mensaje"><img src="../Recursos/mensaje.png" alt="Foto de Perfil"></div>
+    </header>
+    <main>
+        <section>
+            <div class="seccionImagen">
+                <div class="img_container"><img src="#"></div>
+                <div class="dato">
+                    <h3>Usuario</h3>
+                    <input class="inputDato" type="text" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <div class="dato">
+                    <h3>Edad</h3>
+                    <input class="inputDato" type="number" disabled>
+                </div>
+                <div class="dato">
+                    <h3>Descripci&oacute;n</h3>
+                    <div id="textareaElementos">
+                        <textarea class="inputDato" disabled></textarea>
+                        <button class="editButton">Editar</button>
+                    </div>
+                </div>
+            </div>
+            <div class="seccionTexto">
+                <h3 class="seccion">Informaci&oacute;n Personal</h3>
+                <div class="dato">
+                    <h3>Fecha de nacimiento</h3>
+                    <input class="inputDato"  type="date" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <div class="dato">
+                    <h3>Sexo</h3>
+                    <input class="inputDato"  type="text" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <div class="dato">
+                    <h3>Correo Electr&oacute;nico</h3>
+                    <input class="inputDato"  type="email" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <h3 class="seccion">Informaci&oacute;n Escolar</h3>
+                <div class="dato">
+                    <h3>Facultad</h3>
+                    <input class="inputDato"  type="text" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <div class="dato">
+                    <h3>Carrera</h3>
+                    <input class="inputDato"  type="text" disabled>
+                    <button class="editButton">Editar</button>
+                </div>
+                <h3 class="seccion">Mis Intereses</h3>
+                <div class="datoEtiquetas">
+                    <h3>Estoy buscando</h3>
+                    <div class="centrar">
+                        <div class="etiquetas-container"></div>
+                        <button class="editButtonEtiquetas">Editar</button>
+                    </div>
+                    <div class="opciones-buscando">
+                        <div class="acomodar">
+                            <div class="opcionEtiqueta">
+                                <span>Amistad</span>
+                                <i class="fa-solid fa-plus" data-tag="Amistad"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Networking</span>
+                                <i class="fa-solid fa-plus" data-tag="Networking"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Conocer gente</span>
+                                <i class="fa-solid fa-plus" data-tag="Conocer gente"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Amor</span>
+                                <i class="fa-solid fa-plus" data-tag="Amor"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="datoEtiquetas">
+                    <h3>Hobbies</h3>
+                    <div class="centrar">
+                        <div class="etiquetas-container"></div>
+                        <button class="editButtonEtiquetas">Editar</button>
+                    </div>
+                    <div class="opciones-buscando">
+                        <div class="acomodar">
+                            <div class="opcionEtiqueta">
+                                <span>Pintura</span>
+                                <i class="fa-solid fa-plus" data-tag="Pintura"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Escritura creativa</span>
+                                <i class="fa-solid fa-plus" data-tag="Escritura creativa"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Fotograf&iacute;a</span>
+                                <i class="fa-solid fa-plus" data-tag="Fotograf&iacute;a"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Programaci&oacute;n</span>
+                                <i class="fa-solid fa-plus" data-tag="Programaci&oacute;n"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Lectura</span>
+                                <i class="fa-solid fa-plus" data-tag="Lectura"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>F&uacute;tbol</span>
+                                <i class="fa-solid fa-plus" data-tag="F&uacute;tbol"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>B&aacute;squetbol</span>
+                                <i class="fa-solid fa-plus" data-tag="B&aacute;squetbol"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Voleibol</span>
+                                <i class="fa-solid fa-plus" data-tag="Voleibol"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Nataci&oacute;n</span>
+                                <i class="fa-solid fa-plus" data-tag="Nataci&oacute;n"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Yoga</span>
+                                <i class="fa-solid fa-plus" data-tag="Yoga"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Correr</span>
+                                <i class="fa-solid fa-plus" data-tag="Correr"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Ciclismo</span>
+                                <i class="fa-solid fa-plus" data-tag="Ciclismo"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Skateboarding</span>
+                                <i class="fa-solid fa-plus" data-tag="Skateboarding"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Ajedrez</span>
+                                <i class="fa-solid fa-plus" data-tag="Ajedrez"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Taekwondo</span>
+                                <i class="fa-solid fa-plus" data-tag="Taekwondo"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Videojuegos</span>
+                                <i class="fa-solid fa-plus" data-tag="Videojuegos"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Viajar</span>
+                                <i class="fa-solid fa-plus" data-tag="Viajar"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Astrolog&iacute;a</span>
+                                <i class="fa-solid fa-plus" data-tag="Astrolog&iacute;a"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div> 
+                <h3 class="seccion">Idiomas</h3>
+                <div class="datoEtiquetas">
+                    <h3>Se hablar</h3>
+                    <div class="centrar">
+                        <div class="etiquetas-container"></div>
+                        <button class="editButtonEtiquetas">Editar</button>
+                    </div>
+                    <div class="opciones-buscando">
+                        <div class="acomodar">
+                            <div class="opcionEtiqueta">
+                                <span>Español</span>
+                                <i class="fa-solid fa-plus" data-tag="Español"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Ingl&eacute;s</span>
+                                <i class="fa-solid fa-plus" data-tag="Ingl&eacute;s"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Franc&eacute;s</span>
+                                <i class="fa-solid fa-plus" data-tag="Franc&eacute;s"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Italiano</span>
+                                <i class="fa-solid fa-plus" data-tag="Italiano"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Portugu&eacute;s</span>
+                                <i class="fa-solid fa-plus" data-tag="Portugu&eacute;s"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Chino mandar&iacute;n</span>
+                                <i class="fa-solid fa-plus" data-tag="Chino mandar&iacute;n"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Japon&eacute;s</span>
+                                <i class="fa-solid fa-plus" data-tag="Japon&eacute;s"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Coreano</span>
+                                <i class="fa-solid fa-plus" data-tag="Coreano"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>Ruso</span>
+                                <i class="fa-solid fa-plus" data-tag="Ruso"></i>
+                            </div>
+                            <div class="opcionEtiqueta">
+                                <span>&Aacute;rabe</span>
+                                <i class="fa-solid fa-plus" data-tag="&Aacute;rabe"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="../js/miPerfil.js" defer></script>
+</body>
+</html>
