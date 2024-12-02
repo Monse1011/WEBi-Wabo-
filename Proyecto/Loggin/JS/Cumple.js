@@ -1,4 +1,4 @@
-window.addEventListener('pageshow', () => {
+window.addEventListener('DOMContentLoaded', () => {
     const form = document.querySelector(".formulario form");
     const diaInput = document.querySelector(".dia input");
     const mesInput = document.querySelector(".mes input");
