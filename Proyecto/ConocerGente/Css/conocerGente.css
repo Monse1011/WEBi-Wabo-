@@ -1,5 +1,38 @@
 @charset "utf-8";
 
+@media (max-width: 700px) {
+    #contenedor {
+        display: flex;
+        flex-direction: column; /* Cambia a disposición vertical */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    #contenedor_candidato_imagen, 
+    #contenedor_info_candidato {
+        width: 80%; 
+        max-width: 350px; 
+        margin: 10px 0;
+    }
+
+    #contenedor_info_candidato {
+        margin-bottom: 100px;
+    }
+
+    #contenedor_candidato_imagen img {
+        width: 100%; /* Asegura que la imagen sea responsiva */
+        height: auto; /* Mantén las proporciones */
+    }
+
+    .siguiente{
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        left: 38%;
+        width: 100%;
+    }
+
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -178,13 +211,15 @@ body {
 
 .siguiente{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     color: #000;
     margin: 20pt auto;
     width: 25%;
 }
 
 .siguiente i{
+    margin-left: 10%;
+    margin-right: 10%;
     font-size: 50pt;
     cursor: pointer;
 }
