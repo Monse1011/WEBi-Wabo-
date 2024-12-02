@@ -19,27 +19,27 @@ datos.forEach((dato) => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-    const secciones = document.querySelectorAll('.datoEtiquetas'); // Selecciona todas las secciones
+    const secciones = document.querySelectorAll('.datoEtiquetas'); 
 
     secciones.forEach(seccion => {
-        const editButton = seccion.querySelector('.editButtonEtiquetas'); // Botón de "Editar"
-        const opciones = seccion.querySelector('.opciones-buscando'); // Lista de opciones
-        const etiquetasContainer = seccion.querySelector('.etiquetas-container'); // Contenedor de etiquetas
+        const editButton = seccion.querySelector('.editButtonEtiquetas'); 
+        const opciones = seccion.querySelector('.opciones-buscando'); 
+        const etiquetasContainer = seccion.querySelector('.etiquetas-container'); 
 
-        // Alternar entre editar/guardar
         editButton.addEventListener('click', () => {
             if (opciones.style.display === 'none' || opciones.style.display === '') {
                 opciones.style.display = 'block';
+                etiquetasContainer.style.backgroundColor = '#fff';
                 editButton.textContent = 'Guardar';
-                etiquetasContainer.style.pointerEvents = 'auto'; // Permitir interacción
+                etiquetasContainer.style.pointerEvents = 'auto'; 
             } else {
                 opciones.style.display = 'none';
                 editButton.textContent = 'Editar';
-                etiquetasContainer.style.pointerEvents = 'none'; // Bloquear interacción
+                etiquetasContainer.style.backgroundColor= '#efefef4d';
+                etiquetasContainer.style.pointerEvents = 'none'; 
             }
         });
 
-        // Agregar etiquetas al contenedor
         opciones.addEventListener('click', (event) => {
             if (event.target.tagName === 'I') {
                 const tag = event.target.dataset.tag;
@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Eliminar etiquetas del contenedor
         etiquetasContainer.addEventListener('click', (event) => {
             if (event.target.tagName === 'I') {
                 const etiqueta = event.target.parentElement;

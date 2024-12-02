@@ -152,7 +152,11 @@ section{
 }
 
 .seccion{
-    margin: 15pt 0 10pt 40pt;
+    margin: 15pt 0 10pt 16pt;
+}
+
+.seccion i {
+    color: #166a8b;
 }
 
 .dato textarea {
@@ -189,11 +193,12 @@ section{
 }
 
 .etiquetas-container {
+    background-color: #efefef4d;
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-top: 10px;
-    border: #a2a2a2 solid 1px;
+    border: #7676764d solid 1px;
     min-height: 25pt;
     height: auto;
     padding: 5pt;
