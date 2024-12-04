@@ -2,12 +2,12 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
         e.preventDefault(); 
 
-        
+ 
         const email = localStorage.getItem('email');
 
         const name = document.querySelector('input[name="nombre"]').value.trim();
 
-        
+      
         if (name === '') {
             Swal.fire({
                 icon: 'error',
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         .then(response => response.json())
         .then(data => {
-            
+          
             if (data.success) {
                 Swal.fire({
                     icon: 'success',

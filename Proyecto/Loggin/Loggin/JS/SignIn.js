@@ -1,55 +1,50 @@
 document.addEventListener('DOMContentLoaded', () => {
+   
     document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
         e.preventDefault(); 
 
         
-        const email = localStorage.getItem('email');
+        const email = document.querySelector('input[name="email"]').value.trim();
+        const password = document.querySelector('input[name="password"]').value.trim();
 
-        const name = document.querySelector('input[name="nombre"]').value.trim();
-
-        
-        if (name === '') {
+   
+        if (email === '' || password === '') {
             Swal.fire({
                 icon: 'error',
                 title: 'Campo vacío',
-                text: 'El nombre es obligatorio.',
+                text: 'Por favor complete los campos.',
             });
-            return;
+            return; 
         }
 
-        localStorage.setItem('nombre',name);
+        const data = {
+            email: email,
+            password: password,
+        };
+
         
-        Swal.fire({
-            icon: 'success',
-            title: 'Perfecto',
-            text: 'Nombre ingresado correctamente'
-        }).then(() => {
-            window.location.href = '../html/Cumple.html';  
-        });
-
-       
-
-/*
-        fetch('../php/Nombre.php', {
+        fetch('../php/SignIn.php', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data)
         })
-        .then(response => response.json())
+        .then(response => response.json()) 
         .then(data => {
-            
+            console.log(data); 
+
             if (data.success) {
+                localStorage.setItem('email', email);
+
                 Swal.fire({
                     icon: 'success',
                     title: 'Perfecto',
-                    text: 'Nombre ingresado correctamente'
+                    text: 'Usuario registrado correctamente'
                 }).then(() => {
-                    window.location.href = '../html/Cumple.html';  
+                    window.location.href = '../../ConocerGente/HTML/conocerGente.html';  
                 });
             } else {
-            
                 Swal.fire({
                     icon: 'error',
                     title: 'Error',
@@ -65,8 +60,5 @@ document.addEventListener('DOMContentLoaded', () => {
                 text: 'Hubo un problema al enviar los datos.',
             });
         });
-
-        */
     });
- 
 });

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UadyPoint</title>
+    <link rel="stylesheet" href="../Css/Loggin.css">
+    <link rel="stylesheet" href="../Css/Nombre.css">
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.0/dist/sweetalert2.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.5.0/dist/sweetalert2.min.js"></script>
+
+</head>
+<body>
+    
+    <div class="regresar">
+        <a href="Correo.html">Regresar</a>
+    </div>
+
+    <div class="contenedor">
+        <div class="formularioContenedor">
+
+            <div class="logo">
+                <img src="../Recursos/jaguar.png" alt="Logo">
+            </div>
+
+            <div class="instruccion">
+                <h2>Muy bien! ¿Cómo te gusta que te llamen?</h2>
+            </div>
+
+            <div class="formulario">
+                <form method="post" action="../php/Nombre.php" name="uady">
+                    <div class="nombre">
+                        <input type="text" name="nombre" id="name" required>
+                        <label>Así es como aparecerás en UadyPoint</label>
+                    </div>
+
+                    <div class="boton">
+                        <input type="submit" value="Continuar" id="button" name="registro">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="../../Loggin/JS/Nombre.js"></script>
+</body>
+</html>
