@@ -43,8 +43,19 @@ document.querySelector('form[name="uady"]').addEventListener('submit', function 
     }
 
     localStorage.setItem('email', email);
+    localStorage.setItem('password',password);
+    localStorage.setItem('confirmPassword',confirmPassword);
 
 
+     Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: '¡Bienvenido a UadyPoint!',
+        }).then(() => {
+            window.location.href = '../html/Nombre.html';
+        });
+
+/*
     fetch('../php/Correo.php', {
         method: 'POST',
         headers: {
@@ -74,6 +85,8 @@ document.querySelector('form[name="uady"]').addEventListener('submit', function 
                     text: data.message,
                 });
             }
+
+            
         });
-    
+    */
 });
