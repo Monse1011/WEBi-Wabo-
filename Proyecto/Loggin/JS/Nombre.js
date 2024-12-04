@@ -16,11 +16,6 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             return;
         }
-        
-        const data = {
-            email: email,
-            name: name
-        };
 
         
         const data = {
