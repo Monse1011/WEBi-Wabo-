@@ -24,26 +24,9 @@ form .correo, form .contraseña {
     display: inline-block;
 }
 
-.boton {
-    width: 100%;
-    text-align: center;
-    margin: 20px 0;
-    padding: 5px;
+
+.btn-custom {
+    background-color: #ffbe3f !important;
+    color: white !important;  /* O cualquier color que desees para el texto */
 }
 
-.boton button{
-    width: 100%;
-    height: 50px;
-    border: none;
-    background-color: #ffbe3f;
-    border-radius: 25px;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-}
-
-.boton a{
-    text-decoration: none;
-    color: black;
-}

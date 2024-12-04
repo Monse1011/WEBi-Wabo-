@@ -315,118 +315,118 @@
         }
     }
 
-    @media (max-width: 610px){
-        #header h1{
-            margin-left: 0;
-        }
-        #section1 {
-            height: 450pt;
-        }
-        #barra_navegacion {
-            padding: 0;
-            font-size: 10pt;
-        }
-        #button_nav {
-            border-radius: 10pt;
-            padding: 5pt;
-            font-size: 12pt;
-            cursor: pointer;
-        }
-        .button_section {
-            padding: 8pt;
-            font-size: 14pt;
-        }
-        #section2 {
-            height: 600px;
-        }
-        .centrar {
-            display: block;
-            height: 600px;
-            width: 320px;
-            margin: 0 auto;
-        }
-        #texto_section2 {
-            margin-top: 30pt;
-        }
-        #img_contenedor {
-            margin-top: 140pt;
-        }
-        .comentario{
-            width: 400px;
-            height: 300px;
-        }
-        .comentario h3 {
-            font-size: 20pt;
-            margin-top: 15px;
-        }
-        
-        .comentario p {
-            margin-top: 0;
-            font-size: 13pt;
-            padding: 20pt;
-        }
-
-        @media print {
-            #header, #barra_navegacion, footer, #button_nav, .button_section {
-                display: none;
-            }
-        
-            body {
-                background: none; 
-                color: #000; 
-                font-size: 12pt; 
-            }
-        
-
-            #section1 h2, #section2 h2 {
-                font-size: 20pt;
-                text-align: left;
-                text-shadow: none; 
-            }
-        
-            #section1 p, #section2 p, .comentario p {
-                font-size: 14pt;
-                color: #000;
-            }
-                    img {
-                max-width: 100%;
-                height: auto;
-            }
-
-            .comments-container {
-                display: block;
-            }
-        
-            .comentario {
-                width: 100%;
-                height: auto;
-                margin-bottom: 20px;
-                position: static; 
-                opacity: 1; 
-                transform: none;
-                background-color: #f5f5f5; 
-                color: #000;
-            }
-        
-            .comentario h3 {
-                font-size: 16pt;
-            }
-        
-            .comentario p {
-                font-size: 12pt;
-            }
-        
-
-            h2, p, .comentario {
-                page-break-inside: avoid;
-            }
+@media (max-width: 610px){
+    #header h1{
+        margin-left: 0;
+    }
+    #section1 {
+        height: 450pt;
+    }
+    #barra_navegacion {
+        padding: 0;
+        font-size: 10pt;
+    }
+    #button_nav {
+        border-radius: 10pt;
+        padding: 5pt;
+        font-size: 12pt;
+        cursor: pointer;
+    }
+    .button_section {
+        padding: 8pt;
+        font-size: 14pt;
+    }
+    #section2 {
+        height: 600px;
+    }
+    .centrar {
+        display: block;
+        height: 600px;
+        width: 320px;
+        margin: 0 auto;
+    }
+    #texto_section2 {
+        margin-top: 30pt;
+    }
+    #img_contenedor {
+        margin-top: 140pt;
+    }
+    .comentario{
+        width: 400px;
+        height: 300px;
+    }
+    .comentario h3 {
+        font-size: 20pt;
+        margin-top: 15px;
+    }
     
-            a {
-                text-decoration: none;
-                color: inherit;
-            }
-        }
-        
+    .comentario p {
+        margin-top: 0;
+        font-size: 13pt;
+        padding: 20pt;
     }
 
+   
     
+}
+
+@media print {
+
+  
+    body {
+        background: none; 
+        color: black; 
+        font-size: 12pt; 
+    }
+
+
+    #section1 h2, #section2 h2 {
+        font-size: 20pt;
+        text-align: left;
+        text-shadow: none;
+    }
+
+    #section1 p, #section2 p, .comentario p {
+        font-size: 14pt;
+        color: #000;
+    }
+
+    #img_contenedor img{
+        max-width: 100%;
+        height: auto;
+        filter: grayscale(100%);    
+    }
+
+    #contenedor_logo{
+        filter: grayscale(100%); 
+    }
+
+    .button_section {
+       border: 1px solid black;
+    }
+
+
+    .comments-container {
+        display: block;
+    }
+
+    .comentario {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+        position: static; 
+        opacity: 1; 
+        transform: none;
+
+        color: #000;
+    }
+
+   
+    h2, p, .comentario {
+        page-break-inside: avoid;
+    }
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+}
