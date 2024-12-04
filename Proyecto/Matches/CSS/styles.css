@@ -1,0 +1,85 @@
+#main_contenedor {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+#subtitulo{
+    text-align: center;
+    margin-bottom: 10pt;
+}
+#subtitulo_2{
+    text-align: center;
+    margin-top: 10pt;
+}
+
+/* Contenedor que permite el scroll horizontal */
+#contenedor_matches {
+    max-width: 80%;
+    height: 380pt;
+    border: 5px solid #0074d9;
+    padding: 10px; /* Margen interno */
+    overflow-x: auto; /* Habilita el scroll horizontal */
+    overflow-y: hidden;
+    display: flex;
+    border-radius: 10px;
+}
+
+/* Filas de perfiles */
+#perfiles {
+    display: flex; /* Alinea los perfiles en una fila */
+    flex-direction: row;
+    gap: 10px; /* Espacio entre perfiles */
+    justify-content: center; /* Centra los perfiles si no llenan la fila */
+}
+
+/* Estilo para los perfiles individuales */
+.perfil_matched {
+    height: 100%; /* Altura fija */
+    width: 300pt; /* Ancho fijo */
+    background-color: #f4c542; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 10px; /* Bordes redondeados */
+    flex-shrink: 0; /* Evita que los perfiles se reduzcan */
+    padding: 10px;
+}
+
+/* Estilo para las imágenes dentro de los perfiles */
+.perfil_matched img {
+    width: 100%; /* La imagen ocupa el ancho completo del perfil */
+    height: 100%; /* La imagen ocupa la altura completa del perfil */
+    object-fit: cover; /* Mantiene proporción y rellena el espacio */
+    object-position: center; /* Centra la imagen */
+    border-radius: 10px; /* Redondea los bordes de la imagen */
+    transition: opacity 1s ease-in-out; /* Animación al cambiar la opacidad */
+}
+
+.perfil_matched .info {
+    position: absolute; /* Ubicación relativa al contenedor padre */
+    bottom: 0; /* Mostrar en la parte inferior del perfil */
+    left: 0;
+    width: 100%; /* Cubrir el ancho del perfil */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: white; /* Texto blanco para mejor contraste */
+    padding: 10px; /* Espaciado interno */
+    box-sizing: border-box; /* Incluir padding en el tamaño total */
+    text-align: center; /* Centrar el texto */
+    opacity: 0; /* Ocultar inicialmente */
+    transform: translateY(100%); /* Mover fuera del contenedor */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animación */
+}
+
+/* Mostrar información al hacer hover */
+.perfil_matched:hover .info {
+    opacity: 1; /* Hacer visible */
+    transform: translateY(0); /* Colocar en su posición final */
+}
+
+.perfil_matched a {
+    color: #f4c542; 
+    font-weight: bold;
+    text-decoration: none;
+}

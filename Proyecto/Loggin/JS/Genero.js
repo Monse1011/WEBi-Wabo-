@@ -16,7 +16,19 @@ document.getElementById("button").addEventListener("click", function() {
     const genero = generoSeleccionado.value;
     const email = localStorage.getItem('email'); 
 
-  
+
+    localStorage.setItem('genero',genero);
+
+    Swal.fire({
+        icon: 'success',
+        title: 'Perfecto',
+        text: 'Género registrado correctamente',
+    }).then(() => {
+        window.location.href = '../html/Foto.html'; 
+    });
+
+
+  /*
     fetch('../php/Genero.php', {
         method: 'POST',
         headers: {
@@ -51,5 +63,7 @@ document.getElementById("button").addEventListener("click", function() {
             title: 'Error de conexión',
             text: 'Ocurrió un error al enviar los datos.',
         });
+        
     });
+    */
 });
