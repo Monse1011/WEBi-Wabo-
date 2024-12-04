@@ -204,11 +204,11 @@
     }
 
     .comentario.enter {
-        transform: translateX(100%); /* Entra desde la derecha */
+        transform: translateX(100%); 
     }
 
     .comentario.exit {
-        transform: translateX(100%); /* Sale hacia la izquierda */
+        transform: translateX(100%); 
     }
 
     @media (max-width:900px){
@@ -366,13 +366,10 @@
         padding: 20pt;
     }
 
-   
-    
 }
 
 @media print {
 
-  
     body {
         background: none; 
         color: black; 
@@ -402,7 +399,7 @@
     }
 
     .button_section {
-       border: 1px solid black;
+        border: 1px solid black;
     }
 
 
@@ -421,10 +418,10 @@
         color: #000;
     }
 
-   
     h2, p, .comentario {
         page-break-inside: avoid;
     }
+
     a {
         text-decoration: none;
         color: inherit;
