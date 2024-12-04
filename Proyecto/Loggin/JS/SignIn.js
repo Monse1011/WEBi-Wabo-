@@ -1,26 +1,64 @@
-window.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
+   
+    document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
+        e.preventDefault(); 
 
-    document.getElementById('loginForm').addEventListener('submit', (event) => {
-        event.preventDefault(); 
+        
+        const email = document.querySelector('input[name="email"]').value.trim();
+        const password = document.querySelector('input[name="password"]').value.trim();
 
-        const mail = document.getElementById('mail').value.trim();
-        const password = document.getElementById('password').value.trim();
-
-
-        let formValid = true;
-
-        if (mail === "") {
-            alert("Por favor, ingresa tu correo institucional.");
-            formValid = false;
-
-        }else if (password === "") {
-            alert("Por favor, ingresa tu contraseña.");
-            formValid = false;
+   
+        if (email === '' || password === '') {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campo vacío',
+                text: 'Por favor complete los campos.',
+            });
+            return; 
         }
 
-        if (formValid) {
-            window.location.href = "../../ConocerGente/HTML/conocerGente.html";  
-        }
+        const data = {
+            email: email,
+            password: password,
+        };
+
+        
+        fetch('../php/SignIn.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json()) 
+        .then(data => {
+            console.log(data); 
+
+            if (data.success) {
+                localStorage.setItem('email', email);
+
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Perfecto',
+                    text: 'Nombre ingresado correctamente'
+                }).then(() => {
+                    window.location.href = '../../ConocerGente/HTML/conocerGente.html';  
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar los datos:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al enviar los datos.',
+            });
+        });
     });
 });
-

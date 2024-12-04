@@ -69,7 +69,6 @@ body {
 #info h2{
     color: #2b2222;
     font-size: 55pt;
-    text-transform: uppercase;
     font-weight: 900;
 }
 
@@ -130,7 +129,6 @@ body {
 #info2 h3{
     color: #2b2222;
     font-size: 55pt;
-    text-transform: uppercase;
     font-weight: 900;
 }
 
@@ -151,6 +149,24 @@ body {
     height: 522px;
     border-radius: 15pt;
 }
+
+.button_section {
+    text-decoration: none;
+    background-color: #ffbe3f;
+    color: #000;
+    border: none;
+    font-weight: bold;
+    border-radius: 10pt;
+    padding: 15pt;
+    font-size: 16pt;
+    cursor: pointer;
+    margin-bottom: 10pt;
+}
+
+.button_section:hover {
+    color: #fff;
+}
+
 
 @media (max-width:1155px){
     .opcion h3{

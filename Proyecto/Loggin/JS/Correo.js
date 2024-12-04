@@ -1,66 +1,79 @@
-window.addEventListener('DOMContentLoaded', () => {
-    const form = document.querySelector('form');
-    const emailInput = document.querySelector('input[type="email"]');
-    const passwordInput = document.querySelectorAll('input[type="password"]')[0];
-    const confirmPasswordInput = document.querySelectorAll('input[type="password"]')[1];
+document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
+    e.preventDefault(); 
 
-    const emailError = document.getElementById('emailError');
-    const passwordError = document.getElementById('passwordError');
-    const confirmPasswordError = document.getElementById('confirmPasswordError');
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const password = document.querySelector('input[name="password"]').value.trim();
+    const confirmPassword = document.querySelector('input[name="confirmPassword"]').value.trim();
 
-    const validateNotEmpty = (input) => input.trim() !== "";
-    const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@alumnos\.uady\.mx$/.test(email);
-    const validatePasswordLength = (password) => password.length >= 8;
-    const validatePasswordMatch = (password, confirmPassword) => password === confirmPassword;
 
-    const setError = (input, messageElement, message) => {
-        input.classList.add('error');
-        messageElement.textContent = message;
-    };
+    if (email === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo vacío',
+            text: 'El correo institucional es obligatorio.',
+        });
+        return;
+    }
 
-    const clearError = (input, messageElement) => {
-        input.classList.remove('error');
-        messageElement.textContent = "";
-    };
+    if (!email.endsWith('@alumnos.uady.mx')) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Correo inválido',
+            text: 'El correo debe ser del dominio @alumnos.uady.mx',
+        });
+        return;
+    }
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault(); 
+    if (password === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo vacío',
+            text: 'La contraseña es obligatoria.',
+        });
+        return;
+    }
 
-        let hasError = false;
+    if (password !== confirmPassword) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Contraseñas no coinciden',
+            text: 'Ambas contraseñas deben ser iguales.',
+        });
+        return;
+    }
 
-       
-        clearError(emailInput, emailError);
-        clearError(passwordInput, passwordError);
-        clearError(confirmPasswordInput, confirmPasswordError);
+    localStorage.setItem('email', email);
 
-  
-        if (!validateNotEmpty(emailInput.value)) {
-            setError(emailInput, emailError, 'El campo de correo no puede estar vacío.');
-            hasError = true;
-        } else if (!validateEmail(emailInput.value)) {
-            setError(emailInput, emailError, 'Por favor, ingresa un correo institucional válido que termine en @alumnos.uady.mx.');
-            hasError = true;
-        }
 
-        if (!validateNotEmpty(passwordInput.value)) {
-            setError(passwordInput, passwordError, 'El campo de contraseña no puede estar vacío.');
-            hasError = true;
-        } else if (!validatePasswordLength(passwordInput.value)) {
-            setError(passwordInput, passwordError, 'La contraseña debe tener al menos 8 caracteres.');
-            hasError = true;
-        }
-
-        if (!validateNotEmpty(confirmPasswordInput.value)) {
-            setError(confirmPasswordInput, confirmPasswordError, 'El campo de confirmación de contraseña no puede estar vacío.');
-            hasError = true;
-        } else if (!validatePasswordMatch(passwordInput.value, confirmPasswordInput.value)) {
-            setError(confirmPasswordInput, confirmPasswordError, 'Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
-            hasError = true;
-        }
-
-      
-        if (!hasError) {
-            form.submit(); 
-        }
-    });
+    fetch('../php/Correo.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+    
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro exitoso',
+                    text: '¡Bienvenido a UadyPoint!',
+                }).then(() => {
+                    window.location.href = '../html/Nombre.html';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message,
+                });
+            }
+        });
+    
 });

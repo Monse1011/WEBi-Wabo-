@@ -25,3 +25,8 @@ form .correo, form .contraseña {
 }
 
 
+.btn-custom {
+    background-color: #ffbe3f !important;
+    color: white !important;  /* O cualquier color que desees para el texto */
+}
+
