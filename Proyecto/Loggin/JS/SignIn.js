@@ -1,4 +1,4 @@
-window.addEventListener('pageshow', () => {
+window.addEventListener('DOMContentLoaded', () => {
 
     document.getElementById('loginForm').addEventListener('submit', (event) => {
         event.preventDefault(); 

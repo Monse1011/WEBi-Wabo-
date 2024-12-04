@@ -1,69 +1,110 @@
-window.addEventListener('pageshow', () => {
-    const form = document.querySelector(".formulario form");
-    const diaInput = document.querySelector(".dia input");
-    const mesInput = document.querySelector(".mes input");
-    const anioInput = document.querySelector(".año input");
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-    const isNumeric = (str) => /^\d+$/.test(str);
+        console.log('Cumple.js cargado');
 
-    const validateDate = (day, month, year) => {
-        if (!isNumeric(day) || !isNumeric(month) || !isNumeric(year)) {
-            alert("Por favor, ingresa solo números en los campos de fecha.");
-            return false;
-        }
+        const dia = document.getElementById('dia').value.trim();
+        const mes = document.getElementById('mes').value.trim();
+        const año = document.getElementById('año').value.trim();
 
-        const dia = parseInt(day, 10);
-        const mes = parseInt(month, 10);
-        const anio = parseInt(year, 10);
-
-        if (dia < 1 || dia > 31) {
-            alert("Por favor, ingresa un día válido (1-31).");
-            return false;
-        }
-        if (mes < 1 || mes > 12) {
-            alert("Por favor, ingresa un mes válido (1-12).");
-            return false;
-        }
-        if (anio > new Date().getFullYear() || anio < 1900) {
-            alert("Por favor, ingresa un año válido.");
-            return false;
-        }
-
-        const birthDate = new Date(anio, mes - 1, dia);
-        const today = new Date();
-        const age = today.getFullYear() - birthDate.getFullYear();
-        const monthDifference = today.getMonth() - birthDate.getMonth();
-        const dayDifference = today.getDate() - birthDate.getDate();
-
-        if (age < 18 || (age === 18 && (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)))) {
-            alert("Debes ser mayor de 18 años para poder continuar.");
-            return false;
-        }
-
-        return true;
-    };
-
-    // Limpia el campo cuando el usuario hace clic en él la primera vez
-    [diaInput, mesInput, anioInput].forEach(input => {
-        input.addEventListener('focus', () => {
-            input.value = "";
-        });
-    });
-
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
-
-        const dia = diaInput.value.trim();
-        const mes = mesInput.value.trim();
-        const anio = anioInput.value.trim();
-
-        if (!dia || !mes || !anio) {
-            alert("Por favor, completa todos los campos.");
+        if (!dia || !mes || !año) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Campos vacíos',
+                text: 'Todos los campos son obligatorios.',
+            });
             return;
         }
 
-        if (validateDate(dia, mes, anio)) {
-            window.location.href = "Genero.html";
+        const fechaNacimiento = `${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
+
+        // Validar si la fecha de nacimiento es una fecha futura
+        const fechaHoy = new Date();
+        const fechaNacimientoObj = new Date(fechaNacimiento);
+
+        if (fechaNacimientoObj > fechaHoy) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Fecha futura',
+                text: 'La fecha de nacimiento no puede ser una fecha futura.',
+            });
+            return;
         }
+
+     
+        const edad = calcularEdad(fechaNacimientoObj);
+
+        if (edad < 18) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Edad insuficiente',
+                text: 'Debes ser mayor de 18 años para registrarte.',
+            });
+            return;
+        }
+
+        const email = localStorage.getItem('email');
+
+        if (!email) {
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'No se encontró un email válido.',
+            });
+            return;
+        }
+
+        const data = {
+            email: email,
+            fecha_nacimiento: fechaNacimiento,
+        };
+
+        fetch('../php/Cumple.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Fecha registrada',
+                    text: data.message,
+                }).then(() => {
+                    window.location.href = '../html/Genero.html';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message,
+                });
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar los datos:', error);
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: 'Hubo un problema al enviar los datos.',
+            });
+        });
     });
 });
+
+function calcularEdad(fechaNacimiento) {
+    const hoy = new Date();
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth();
+    const dia = hoy.getDate();
+
+    if (mes < fechaNacimiento.getMonth() || (mes === fechaNacimiento.getMonth() && dia < fechaNacimiento.getDate())) {
+        edad--;
+    }
+
+    return edad;
+}

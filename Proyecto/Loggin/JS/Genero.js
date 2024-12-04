@@ -1,32 +1,55 @@
-window.addEventListener('pageshow', () => {
-    const botonesGenero = document.querySelectorAll('.genero input[type="button"]');
-    const botonContinuar = document.querySelector('.boton button');
-    let generoSeleccionado = null; 
+document.getElementById("button").addEventListener("click", function() {
+   
+    const generoSeleccionado = document.querySelector('input[name="genero"]:checked');
 
 
-    botonesGenero.forEach(boton => {
-        boton.addEventListener('click', () => {
-
-            botonesGenero.forEach(b => {
-                b.style.backgroundColor = ""; 
-                b.style.color = "";
-                b.style.border = ""; 
-            });
-
-            boton.style.backgroundColor = "#192762"; 
-            boton.style.color = "White"; 
-            generoSeleccionado = boton.value; 
+    if (!generoSeleccionado) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Por favor, selecciona un género.',
         });
-    });
+        return;
+    }
 
 
-    botonContinuar.addEventListener('click', (event) => {
-        if (!generoSeleccionado) {
-            event.preventDefault(); 
-            alert("Por favor, selecciona un género para continuar.");
+    const genero = generoSeleccionado.value;
+    const email = localStorage.getItem('email'); 
+
+  
+    fetch('../php/Genero.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            genero: genero
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            Swal.fire({
+                icon: 'success',
+                tittle: 'Perfecto',
+                text: 'Género ingresado correctamente',
+            }).then(() => {
+                window.location.href = '../html/Foto.html'; 
+            });
         } else {
-
-            window.location.href = "Foto.html";
+            Swal.fire({
+                icon: 'error',
+                title: 'Error',
+                text: data.message,
+            });
         }
+    })
+    .catch(error => {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error de conexión',
+            text: 'Ocurrió un error al enviar los datos.',
+        });
     });
 });

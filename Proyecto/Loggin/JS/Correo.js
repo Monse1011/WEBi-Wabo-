@@ -1,51 +1,79 @@
-window.addEventListener('pageshow', () => {
-    const form = document.querySelector('form');
-    const emailInput = document.querySelector('input[type="email"]');
-    const passwordInput = document.querySelectorAll('input[type="password"]')[0];
-    const confirmPasswordInput = document.querySelectorAll('input[type="password"]')[1];
+document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
+    e.preventDefault(); 
 
-    const validateNotEmpty = (input) => input.trim() !== "";
-    const validateEmail = (email) => /^[a-zA-Z0-9._%+-]+@alumnos\.uady\.mx$/.test(email);
-    const validatePasswordLength = (password) => password.length >= 8;
-    const validatePasswordMatch = (password, confirmPassword) => password === confirmPassword;
+    const email = document.querySelector('input[name="email"]').value.trim();
+    const password = document.querySelector('input[name="password"]').value.trim();
+    const confirmPassword = document.querySelector('input[name="confirmPassword"]').value.trim();
 
-    form.addEventListener('submit', (event) => {
-        event.preventDefault();
 
-        const email = emailInput.value;
-        const password = passwordInput.value;
-        const confirmPassword = confirmPasswordInput.value;
+    if (email === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo vacío',
+            text: 'El correo institucional es obligatorio.',
+        });
+        return;
+    }
 
-        if (!validateNotEmpty(email)) {
-            alert('El campo de correo no puede estar vacío.');
-            return;
-        }
-        
-        if (!validateNotEmpty(password)) {
-            alert('El campo de contraseña no puede estar vacío.');
-            return;
-        }
-        
-        if (!validateNotEmpty(confirmPassword)) {
-            alert('El campo de confirmación de contraseña no puede estar vacío.');
-            return;
-        }
+    if (!email.endsWith('@alumnos.uady.mx')) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Correo inválido',
+            text: 'El correo debe ser del dominio @alumnos.uady.mx',
+        });
+        return;
+    }
 
-        if (!validateEmail(email)) {
-            alert('Por favor, ingresa un correo institucional válido que termine en @alumnos.uady.mx.');
-            return;
-        }
+    if (password === '') {
+        Swal.fire({
+            icon: 'error',
+            title: 'Campo vacío',
+            text: 'La contraseña es obligatoria.',
+        });
+        return;
+    }
 
-        if (!validatePasswordLength(password)) {
-            alert('La contraseña debe tener al menos 8 caracteres.');
-            return;
-        }
+    if (password !== confirmPassword) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Contraseñas no coinciden',
+            text: 'Ambas contraseñas deben ser iguales.',
+        });
+        return;
+    }
 
-        if (!validatePasswordMatch(password, confirmPassword)) {
-            alert('Las contraseñas no coinciden. Por favor, inténtalo de nuevo.');
-            return;
-        }
+    localStorage.setItem('email', email);
 
-        window.location.href = "../HTML/Nombre.html";
-    });
+
+    fetch('../php/Correo.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            confirmPassword: confirmPassword
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+    
+            if (data.success) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Registro exitoso',
+                    text: '¡Bienvenido a UadyPoint!',
+                }).then(() => {
+                    window.location.href = '../html/Nombre.html';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: data.message,
+                });
+            }
+        });
+    
 });
