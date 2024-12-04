@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die(json_encode(["success" => false, "message" => "Todos los campos son obligatorios."]));
     }
 
- 
+    
     if (!filter_var($email, FILTER_VALIDATE_EMAIL) || !str_ends_with($email, '@alumnos.uady.mx')) {
         die(json_encode(["success" => false, "message" => "El correo debe ser válido y del dominio @alumnos.uady.mx."]));
     }
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     
     if ($result->num_rows > 0) {
-       
+        
         $stmt = $conn->prepare("UPDATE usuario SET nombre = ? WHERE email = ?");
         if (!$stmt) {
             die(json_encode(["success" => false, "message" => "Error al preparar la consulta de actualización: " . $conn->error]));

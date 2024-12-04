@@ -1,5 +1,38 @@
 @charset "utf-8";
 
+@media (max-width: 700px) {
+    #contenedor {
+        display: flex;
+        flex-direction: column; /* Cambia a disposición vertical */
+        align-items: center; /* Centra los elementos horizontalmente */
+    }
+
+    #contenedor_candidato_imagen, 
+    #contenedor_info_candidato {
+        width: 80%; 
+        max-width: 350px; 
+        margin: 10px 0;
+    }
+
+    #contenedor_info_candidato {
+        margin-bottom: 100px;
+    }
+
+    #contenedor_candidato_imagen img {
+        width: 100%; /* Asegura que la imagen sea responsiva */
+        height: auto; /* Mantén las proporciones */
+    }
+
+    .siguiente{
+        position: fixed;
+        display: flex;
+        bottom: 0;
+        left: 38%;
+        width: 100%;
+    }
+
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -122,53 +155,71 @@ body {
     color: inherit;
 }
 
-.contenedor {
+#contenedor {
     display: flex;
     margin-top: 20px;
-    gap: 20px; 
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
 }
 
-.rectangulo-izquierdo {
-    flex: 4; 
+#contenedor_candidato_imagen {
+    width: 640px; 
+    height: 480px; 
     border: 5px solid #0074d9; 
-    padding: 10px;
+    padding: 0; /* Asegúrate de que no haya espacio dentro del contenedor */
     background-color: white;
-    margin-left: 15px;
+    overflow: hidden; /* Esencial para que no se muestre la parte recortada de la imagen */
+    display: flex; /* Asegura que la imagen se alinee correctamente */
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    position: relative;
 }
 
-.rectangulo-izquierdo img {
-    width: 100%; 
-    height: 100%; 
-    border-radius: 5px; 
+#contenedor_candidato_imagen img {
+    width: 100%; /* Asegura que la imagen llene el ancho mínimo del contenedor */
+    height: 100%; /* Asegura que la imagen llene la altura mínima del contenedor */
+    object-fit: cover; /* Mantiene la proporción y rellena el espacio */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+    transition: opacity 1s ease-in-out;
+    position: absolute;
 }
 
-.rectangulo-derecho {
-    flex: 2; 
+#contenedor_candidato_imagen img.active {
+    opacity: 1;
+  }
+
+#contenedor_info_candidato {
     border: 5px solid #f4c542; 
     padding: 20px;
-    background-color: white;
+    width: 400px; 
+    height: 480px; 
     border-radius: 5px; 
-    margin-right: 15px;
+    overflow: auto;
+    text-align: justify;
 }
 
-.rectangulo-derecho h3 {
-    margin-bottom: 10px; 
+#contenedor_info_candidato h3 {
+    text-align: center;
 }
 
-.rectangulo-derecho p {
+#contenedor_info_candidato p {
     margin-bottom: 8px; 
     color: #333; 
 }
 
 .siguiente{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     color: #000;
     margin: 20pt auto;
     width: 25%;
 }
 
 .siguiente i{
+    margin-left: 10%;
+    margin-right: 10%;
     font-size: 50pt;
     cursor: pointer;
 }
