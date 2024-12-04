@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Perfecto',
-                    text: 'Nombre ingresado correctamente'
+                    text: 'Usuario registrado correctamente'
                 }).then(() => {
                     window.location.href = '../../ConocerGente/HTML/conocerGente.html';  
                 });
