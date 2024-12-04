@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -15,7 +16,7 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  
+    
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
 
@@ -25,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $email = trim($input['email'] ?? '');
     $password = trim($input['password'] ?? '');
-   
+    
     if (empty($email) || empty($password)) {
         die(json_encode(["success" => false, "message" => "Todos los campos son obligatorios."]));
     }
@@ -45,7 +46,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die(json_encode(["success" => false, "message" => "El correo electrónico no está registrado."]));
     }
 
- 
+
     $stmt->bind_result($hashedPassword);
     $stmt->fetch();
 
@@ -54,8 +55,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         die(json_encode(["success" => false, "message" => "Contraseña incorrecta."]));
     }
 
+    $_SESSION['user_id'] = $userId;
     
-    echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso"]);
+    echo json_encode(["success" => true, "message" => "Inicio de sesión exitoso", "user_id" => $userId]);
 
     $stmt->close();
     $conn->close();
