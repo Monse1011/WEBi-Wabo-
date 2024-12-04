@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const fechaNacimiento = `${año}-${mes.padStart(2, '0')}-${dia.padStart(2, '0')}`;
 
- 
+        // Validar si la fecha de nacimiento es una fecha futura
         const fechaHoy = new Date();
         const fechaNacimientoObj = new Date(fechaNacimiento);
 

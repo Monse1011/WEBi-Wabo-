@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -15,11 +16,11 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-  
+    
     $inputJSON = file_get_contents('php://input');
     $input = json_decode($inputJSON, true);
 
-  
+    
     if (!is_array($input)) {
         die(json_encode(["success" => false, "message" => "Datos JSON inválidos."]));
     }
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $password = trim($input['password'] ?? '');
     $confirmPassword = trim($input['confirmPassword'] ?? '');
 
-   
+    
     if (empty($email) || empty($password) || empty($confirmPassword)) {
         die(json_encode(["success" => false, "message" => "Todos los campos son obligatorios."]));
     }
@@ -53,13 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $stmt->execute();
     $stmt->store_result();
 
-   
+    
     if ($stmt->num_rows > 0) {
         die(json_encode(["success" => false, "message" => "El correo electrónico ya está registrado."]));
     }
 
     $stmt->close();
- 
+    
     $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
 
 
