@@ -146,8 +146,8 @@ section{
 
 .dato input {
     margin-top: 5pt;
-    width: 300pt;
-    font-size: 12pt;
+    width: 70%;
+    font-size: 14pt;
     padding: 3pt 8pt;
 }
 
@@ -162,7 +162,7 @@ section{
 .dato textarea {
     resize: none;
     margin-top: 5pt;
-    width: 300pt;
+    width: 70%;
     height: 50pt;
     font-size: 12pt;
     padding: 5pt 8pt;
@@ -203,10 +203,10 @@ section{
     height: auto;
     padding: 5pt;
     border-radius: 3pt;
-    width: 300pt;
+    width: 70%;
 }
 
-.etiquetas-container .etiqueta {
+.etiqueta {
     display: flex;
     align-items: center;
     background-color: #f9d3d3;
@@ -216,20 +216,21 @@ section{
     margin-right: 8px;
 }
 
-.etiquetas-container .etiqueta i {
+.etiqueta i {
     margin-left: 5px;
     cursor: pointer;
 }
 
 .opciones-buscando {
     display: none;
+    width: 95%;
     margin-top: 10px;
     border: 1px solid #ddd;
     border-radius: 5px;
     background-color: #f9f9f9;
 }
 
-.opciones-buscando .opcionEtiqueta {
+.opcionEtiqueta {
     border: #000 solid 1px;
     width: fit-content;
     padding: 5pt;
@@ -263,4 +264,80 @@ section{
 
 .opcionEtiqueta i {
     cursor: pointer;
+}
+
+@media (max-width:950px){
+    h3{
+        font-size: 10pt;
+    }
+
+    .dato input, .dato textarea, .etiquetas-container{
+        width: 65%;
+    }
+
+    .dato button, .datoEtiquetas button{
+        font-size: 10pt;
+    }
+
+    .img_container {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media (max-width:830px){
+    section{
+        display: flex;
+        flex-direction: column;
+        height: auto;
+    }
+
+    .dato input, .dato textarea, .etiquetas-container{
+        width: 70%;
+    }
+
+    .seccionImagen, .seccionTexto {
+        width: 90%;
+    }
+
+    .seccionImagen {
+        margin-bottom: 20pt;
+    }
+
+    h3, .dato input{
+        font-size: 14pt;
+    }
+
+    .dato button, .datoEtiquetas button{
+        font-size: 12pt;
+    }
+
+    .img_container {
+        width: 250px;
+        height: 200px;
+    }
+}
+
+@media (max-width: 600px){
+    .img_container {
+        width: 180px;
+        height: 130px;
+    }
+
+    .seccionImagen, .seccionTexto {
+        width: 95%;
+    }
+    
+    .dato input, .dato textarea, .etiquetas-container{
+        width: 60%;
+        font-size: 10pt;
+    }
+
+    h3, .dato button, .datoEtiquetas button {
+        font-size: 10pt;
+    }
+
+    .opcionEtiqueta {
+        font-size: 10pt;
+    }
 }

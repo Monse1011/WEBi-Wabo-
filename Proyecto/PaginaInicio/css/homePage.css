@@ -420,7 +420,7 @@
             h2, p, .comentario {
                 page-break-inside: avoid;
             }
-     
+    
             a {
                 text-decoration: none;
                 color: inherit;

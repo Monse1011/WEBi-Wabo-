@@ -44,7 +44,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (event.target.tagName === 'I') {
                 const tag = event.target.dataset.tag;
 
-                // Verifica que la etiqueta no exista ya
                 if (!Array.from(etiquetasContainer.children).some(el => el.textContent.includes(tag))) {
                     const etiqueta = document.createElement('div');
                     etiqueta.className = 'etiqueta';
