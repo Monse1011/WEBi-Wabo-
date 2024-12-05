@@ -9,7 +9,7 @@ form .correo, form .contraseña {
 
 .correo input, .contraseña input {
     width: 100%;
-    padding: 0 5px;
+    padding: 0 15px;
     height: 50px;
     font-size: 16px;
     border-radius: 15px;
@@ -22,11 +22,30 @@ form .correo, form .contraseña {
     font-weight: bold;
     margin-bottom: 8px;
     display: inline-block;
+
 }
 
 
 .btn-custom {
     background-color: #ffbe3f !important;
-    color: white !important;  /* O cualquier color que desees para el texto */
+    color: white !important;  
 }
+
+#terminos {
+    display: block; 
+    text-align: center; 
+    margin: 10px; 
+    font-size: 10pt; 
+    color: gray;
+}
+
+#terminos a{
+    text-decoration: none;
+    color: gray;
+}
+
+#terminos a:hover {
+    color: darkblue;
+}
+
 

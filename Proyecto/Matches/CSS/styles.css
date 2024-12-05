@@ -83,3 +83,16 @@
     font-weight: bold;
     text-decoration: none;
 }
+
+
+
+
+.icono-mensaje {
+    font-size: 50px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: transform 0.3s ease;
+}
+.icono-mensaje:hover {
+    transform: scale(1.1);
+}

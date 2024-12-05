@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('form[name="uady"]').addEventListener('submit', function (e) {
         e.preventDefault(); 
 
-        
+
         const email = document.querySelector('input[name="email"]').value.trim();
         const password = document.querySelector('input[name="password"]').value.trim();
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 Swal.fire({
                     icon: 'success',
                     title: 'Perfecto',
-                    text: 'Nombre ingresado correctamente'
+                    text: 'Usuario registrado correctamente'
                 }).then(() => {
                     window.location.href = '../../ConocerGente/HTML/conocerGente.html';  
                 });
